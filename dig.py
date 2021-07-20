@@ -2,7 +2,7 @@
 import csv
 import os
 
-with open('/Users/mguhe/Desktop/Oly Hostname WAF.csv', 'rb') as f:
+with open('/<filepath>/<filename.csv>', 'rb') as f:
     reader = csv.reader(f)
     data = list(reader)
 
@@ -33,7 +33,7 @@ for key in domains:
         break
 
 #write to csv
-with open('/Users/mguhe/Desktop/dig_output.csv', 'wb') as f:
+with open('/<filepath>/<filename.csv>', 'wb') as f:
     writer = csv.writer(f)
     for key, value in dns.items():
     	writer.writerow([key, value])
