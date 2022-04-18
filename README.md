@@ -5,8 +5,8 @@ Akamai Purge By URL script is intended to simplify purging multiple URLs at once
 
 ## Sample output for purging 3 URLs at a time
 
- 
-[^1]: {"httpStatus":201,"detail":"Request accepted","supportId":"edus-SDZZcJTG25s6Ggc3eN2Ezi","purgeId":"edus-SDZZcJTG25s6Ggc3eN2Ezi","estimatedSeconds":5}
+[^note] 
+{"httpStatus":201,"detail":"Request accepted","supportId":"edus-SDZZcJTG25s6Ggc3eN2Ezi","purgeId":"edus-SDZZcJTG25s6Ggc3eN2Ezi","estimatedSeconds":5}
 
 {"httpStatus":201,"detail":"Request accepted","supportId":"edus-SKdAbXTBRb75JPjyYUBg9Z","purgeId":"edus-SKdAbXTBRb75JPjyYUBg9Z","estimatedSeconds":5}
 
