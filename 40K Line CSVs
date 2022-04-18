@@ -1,0 +1,9 @@
+#!/usr/bin/python
+import csv
+
+csvfile = open('<path_to_csv_file>', 'r').readlines()
+filename = 1
+for i in range (len(csvfile)):
+	if i % 40000 == 0:
+		open(str(filename) + '.csv', 'w+').writelines(csvfile[i:i+40000])
+		filename += 1
