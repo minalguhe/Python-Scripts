@@ -14,5 +14,4 @@ Akamai Purge By URL script is intended to simplify purging multiple URLs at once
 
 {'objects': 'URLs sent in the POST payload'} 
   
-  
-	:upside_down_face:
+:upside_down_face:
