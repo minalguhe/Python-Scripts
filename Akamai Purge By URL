@@ -23,10 +23,17 @@ for n in range(0, total_count):
 
 # Function to purge using URLs (200 at a time)
 def purge(): 
-	N = 0
+	N = 0 
+	# Variable for tracking purge rounds
+	purge_round = 0
+	# --- EDIT HERE --- Number of objects to purge each round
+	purge_objects = 200
+	# Number of times to loop based on total_count vs purge_objects
+	loop = int(total_count / purge_objects) + (total_count % purge_objects > 0)
+	print (loop)
 	if N <= total_count:
-		for i in range(N, N + 200): # creating for loop to purge 200 URLs at once
-			payload = {"objects": new_data[N:N+200]}
+		for i in range(N, loop): # creating for loop to purge 200 URLs at once
+			payload = {"objects": new_data[N:N + purge_objects]}
 			headers = {
     			"Accept": "application/json",
     			"Content-Type": "application/json"
@@ -34,8 +41,16 @@ def purge():
 			s = requests.Session()
 			s.auth = EdgeGridAuth.from_edgerc(edgerc, section)
 			result = s.post(urljoin(baseurl, '/ccu/v3/delete/url/<network>'), json=payload, headers=headers) #Replace <network> with 'staging' or 'production'
-			N = N + 200
+			N = N + purge_objects
+			purge_round = purge_round + 1
+			# Output showing API call response and objects purged in each call.
+			print("------------------ROUND ",purge_round,"------------------")
+			print("")
+			print("---API RESPONSE---")
 			print(result.text)
-		print(payload) 
+			print("---PAYLOAD---")
+			print(payload)
+			print("")
+		
 
 purge() # Function call
